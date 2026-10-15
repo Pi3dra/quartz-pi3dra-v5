@@ -1,0 +1,14 @@
+views:
+  - type: cards
+    name: View
+    filters:
+      and:
+        - file.inFolder("Writeups")
+        - file.hasTag("HTB")
+    order:
+      - file.name
+      - OS
+      - difficulty
+    image: note.iconurl
+    cardSize: 170
+    imageFit: contain

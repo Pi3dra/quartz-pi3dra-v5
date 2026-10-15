@@ -4,35 +4,33 @@ title: Cybersecurity, IoT and Computer Science.
 permalink: https://github.com/Pi3dra
 ---
 
-```
- ▄█     █▄     ▄████████  ▄█        ▄████████  ▄██████▄    ▄▄▄▄███▄▄▄▄      ▄████████
-███     ███   ███    ███ ███       ███    ███ ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███
-███     ███   ███    █▀  ███       ███    █▀  ███    ███ ███   ███   ███   ███    █▀ 
-███     ███  ▄███▄▄▄     ███       ███        ███    ███ ███   ███   ███  ▄███▄▄▄    
-███     ███ ▀▀███▀▀▀     ███       ███        ███    ███ ███   ███   ███ ▀▀███▀▀▀    
-███     ███   ███    █▄  ███       ███    █▄  ███    ███ ███   ███   ███   ███    █▄ 
-███ ▄█▄ ███   ███    ███ ███▌    ▄ ███    ███ ███    ███ ███   ███   ███   ███    ███
- ▀███▀███▀    ██████████ █████▄▄██ ████████▀   ▀██████▀   ▀█   ███   █▀    ██████████
-```
-
-
 This is my personal blog, where I'll write about my personal or professional projects, 
 and any interesting computer science topic I am currently interested in.
 
-**My github :** https://github.com/Pi3dra
+**[Github](https://github.com/Pi3dra)**
+**[Hack The Box](https://profile.hackthebox.com/profile/019dd31b-1181-734f-ac4e-8917d24316ed?utm_medium=copy_url)**
+**[Itch.io](https://pi3dra.itch.io/)**
 
-**Contact :** pedro.bartolomei-pandozi [at] etu-upsaclay.fr
+**Contact :** pedro.bartolomei@ip-paris.fr  
+
 # Currently working on:
 (ordered by priority)
 
-- Internship on Automata analysis of network protocols from a security perspective (More on that later)
+- Improving the architecture of Active Automata Learning (more on that later)
+- [[Game Development]] -> Takes on game development and game jams
 - [[ Hack The Box CPTS Certification]]
-- [[ProgTank]] -> Networking project on adeept raspberry tanks
-- [[GameDev]] -> Takes on game development and game jams
 - [[Personal Home Lab]]
 
 # Previous work or projects:
+- [Active Automata Learning](AAL) -> analysis of network protocols.
 - [[Decret]] -> Linux Userspace Vulnerability Reproducer
 - [[RustBoi]] -> GameBoy Emulator written in Rust
 - [[Autonomous Slot Cars]]
 
+# My Progress on HTB 
+![[Writeup Base.base]]
+
+![[HTB Rank]]
+
+
+![[Hack The Box CPTS Certification]]

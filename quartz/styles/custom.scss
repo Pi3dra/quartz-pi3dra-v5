@@ -1,3 +1,90 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+/* ============================================================
+ * Background
+ * ============================================================ */
+
+body {
+  background: url("/assets/mondaybanner.gif") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.page > #quartz-body > footer,
+.page > #quartz-body > .sidebar.left {
+  background: color-mix(in srgb, var(--light) 70%, transparent);
+}
+.center {
+  background: color-mix(in srgb, var(--light) 99%, transparent);
+}
+
+.explorer-ul,
+.explorer,
+.explorer * {
+  background-color: transparent;
+}
+
+.transclude-src{
+  display: none;
+}
+
+/* ============================================================
+ * Two-column layout
+ * ============================================================ */
+
+.page > #quartz-body {
+  grid-template-columns: $sidePanelWidth minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "grid-sidebar-left grid-center"
+    "grid-sidebar-left grid-footer";
+}
+
+
+/* ============================================================
+ * Center
+ * ============================================================ */
+
+.page > #quartz-body > .center {
+  grid-area: grid-center;
+
+  width: auto;
+  margin : 1rem;
+  padding : 1rem;
+
+}
+
+/* ============================================================
+ * Left sidebar
+ * ============================================================ */
+
+.page > #quartz-body > .sidebar.left {
+  padding-top: 1rem !important;
+}
+
+.graph h3 {
+  display : none;
+}
+
+.explorer,
+.toc,
+.backlinks {
+  height: 250px;
+  overflow: auto;
+}
+
+/* ============================================================
+ * Footer
+ * ============================================================ */
+
+.page > #quartz-body > footer {
+  grid-area: grid-footer;
+  margin : 1rem;
+  padding : 1rem;
+
+
+}
+
+.page-header,
+h1.article-title:nth-child(1) {
+  margin: 0rem;
+}
