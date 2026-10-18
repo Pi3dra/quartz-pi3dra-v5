@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: pi3dra
+  baseUrl: pi3dra.github.io/quartz-pi3dra-v5
   ignorePatterns:
     - private
     - templates

@@ -24,6 +24,7 @@ permalink: https://github.com/Pi3dra
 - [Active Automata Learning](AAL) -> analysis of network protocols.
 - [[Decret]] -> Linux Userspace Vulnerability Reproducer
 - [[RustBoi]] -> GameBoy Emulator written in Rust
+- [3D Printing](3D%20Printing%20Course.md)
 - [[Autonomous Slot Cars]]
 
 # My Progress on HTB 

@@ -25,10 +25,13 @@ body {
   background: color-mix(in srgb, var(--light) 99%, transparent);
 }
 
-.explorer-ul,
-.explorer,
-.explorer * {
-  background-color: transparent;
+// Transparent explorer on desktop only (on mobile the popup needs a solid background)
+@media all and not ($mobile) {
+  .explorer-ul,
+  .explorer,
+  .explorer * {
+    background-color: transparent;
+  }
 }
 
 .transclude-src {
@@ -97,25 +100,109 @@ h1.article-title:nth-child(1) {
     box-sizing: border-box;
   }
 
-  // Top bar: compact and scrolls away with the page
+  // Top bar: compact row, scrolls away with the page
   .page > #quartz-body > .sidebar.left {
     position: static !important;
     height: auto !important;
     padding: 0.5rem !important;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 0.5rem;
+    min-width: 0;
   }
 
-  // Hide the bulky widgets on phones
+  // Everything in the bar stays on one line and may shrink
+  .page > #quartz-body > .sidebar.left > * {
+    min-width: 0;
+    margin: 0;
+    flex-shrink: 1;
+  }
+
+  // Small title that truncates instead of wrapping
+  .sidebar.left .page-title {
+    font-size: 1rem;
+    margin: 0;
+    flex: 0 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sidebar.left .page-title a {
+    white-space: nowrap;
+  }
+
+  // Spacer pushes search + dark mode to the right
+  .sidebar.left .mobile-only {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  // Search + dark mode stay side by side
+  .sidebar.left .flex-component {
+    flex: 0 0 auto;
+    flex-wrap: nowrap !important;
+    gap: 0.25rem !important;
+  }
+
+  .sidebar.left .flex-component > div {
+    flex: 0 0 auto !important;
+  }
+
+  .sidebar.left .darkmode svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  // Hide bulky widgets
   .page > #quartz-body > .sidebar.left .graph,
   .page > #quartz-body > .sidebar.left .toc,
   .page > #quartz-body > .sidebar.left .backlinks {
     display: none;
   }
 
-  .page > #quartz-body > .center,
+  // Search: magnifying glass icon only
+  .sidebar.left .search-button p {
+    display: none;
+  }
+
+  .sidebar.left .search-button {
+    width: auto;
+    padding: 0.4rem;
+  }
+
+  .sidebar.left .search-button svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  // Explorer: no fixed height, popup with solid background
+  .sidebar.left .explorer {
+    height: auto;
+    overflow: visible;
+  }
+
+  .sidebar.left .explorer .explorer-content,
+  .sidebar.left .explorer .explorer-ul {
+    background-color: var(--light) !important;
+  }
+
+  // Explorer popup: keep page titles away from the screen edge
+  .sidebar.left .explorer .explorer-content {
+    box-sizing: border-box;
+    padding: 1rem 1.25rem !important;
+  }
+
+  .sidebar.left .explorer .explorer-ul {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  // Content and footer
+  .center,
   .page > #quartz-body > footer {
     width: 100%;
     min-width: 0;

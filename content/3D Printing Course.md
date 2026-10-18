@@ -1,7 +1,4 @@
----
-title: 3D Printing
-tags:
----
+
 
 In this blog post I will talk about a course I really liked this semester: **The Art of Creating Tangible Surfaces**, this is a 3D printing course, in which the goal was to:
 
