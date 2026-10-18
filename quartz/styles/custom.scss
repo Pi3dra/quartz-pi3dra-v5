@@ -5,14 +5,22 @@
  * ============================================================ */
 
 body {
-  background: url("assets/mondaybanner.gif") no-repeat center center fixed;
+  background: url("assets/mondaybanner.gif") no-repeat center center;
   background-size: cover;
+}
+
+// fixed attachment only on larger screens (janky on iOS)
+@media all and not ($mobile) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 .page > #quartz-body > footer,
 .page > #quartz-body > .sidebar.left {
   background: color-mix(in srgb, var(--light) 70%, transparent);
 }
+
 .center {
   background: color-mix(in srgb, var(--light) 99%, transparent);
 }
@@ -23,68 +31,104 @@ body {
   background-color: transparent;
 }
 
-.transclude-src{
+.transclude-src {
   display: none;
 }
 
-/* ============================================================
- * Two-column layout
- * ============================================================ */
-
-.page > #quartz-body {
-  grid-template-columns: $sidePanelWidth minmax(0, 1fr);
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "grid-sidebar-left grid-center"
-    "grid-sidebar-left grid-footer";
-}
-
-
-/* ============================================================
- * Center
- * ============================================================ */
-
-.page > #quartz-body > .center {
-  grid-area: grid-center;
-
-  width: auto;
-  margin : 1rem;
-  padding : 1rem;
-
-}
-
-/* ============================================================
- * Left sidebar
- * ============================================================ */
-
-.page > #quartz-body > .sidebar.left {
-  padding-top: 1rem !important;
-}
-
 .graph h3 {
-  display : none;
-}
-
-.explorer,
-.toc,
-.backlinks {
-  height: 250px;
-  overflow: auto;
-}
-
-/* ============================================================
- * Footer
- * ============================================================ */
-
-.page > #quartz-body > footer {
-  grid-area: grid-footer;
-  margin : 1rem;
-  padding : 1rem;
-
-
+  display: none;
 }
 
 .page-header,
 h1.article-title:nth-child(1) {
   margin: 0rem;
+}
+
+/* ============================================================
+ * Desktop / tablet: two-column layout
+ * ============================================================ */
+
+@media all and not ($mobile) {
+  .page > #quartz-body {
+    grid-template-columns: $sidePanelWidth minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-footer";
+  }
+
+  .page > #quartz-body > .center {
+    grid-area: grid-center;
+    width: auto;
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .page > #quartz-body > .sidebar.left {
+    padding-top: 1rem !important;
+  }
+
+  .page > #quartz-body > footer {
+    grid-area: grid-footer;
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .explorer,
+  .toc,
+  .backlinks {
+    height: 250px;
+    overflow: auto;
+  }
+}
+
+/* ============================================================
+ * Mobile: single column, compact non-sticky top bar
+ * ============================================================ */
+
+@media all and ($mobile) {
+  // Optional: skip the heavy GIF on phones
+  // body { background-image: none; }
+
+  .page > #quartz-body {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+    padding: 0 0.5rem; // same gap on both sides
+    box-sizing: border-box;
+  }
+
+  // Top bar: compact and scrolls away with the page
+  .page > #quartz-body > .sidebar.left {
+    position: static !important;
+    height: auto !important;
+    padding: 0.5rem !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  // Hide the bulky widgets on phones
+  .page > #quartz-body > .sidebar.left .graph,
+  .page > #quartz-body > .sidebar.left .toc,
+  .page > #quartz-body > .sidebar.left .backlinks {
+    display: none;
+  }
+
+  .page > #quartz-body > .center,
+  .page > #quartz-body > footer {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+  }
+
+  // Stop wide content from pushing the layout past the right edge
+  .center img,
+  .center pre,
+  .center table {
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
